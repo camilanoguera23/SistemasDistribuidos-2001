@@ -2,6 +2,8 @@ package services;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -12,6 +14,9 @@ public class Connection {
 	
 	protected ServerSocket ss;
 	protected Socket s;
+	
+	protected ObjectInputStream ois;
+	protected ObjectOutputStream oos;
 	
 	
 	protected DataOutputStream outputServer, outputClient;

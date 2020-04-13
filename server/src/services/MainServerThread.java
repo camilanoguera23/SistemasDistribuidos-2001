@@ -6,10 +6,12 @@ import java.net.Socket;
 
 public class MainServerThread {
 	public static void main(String[] args) throws IOException{
-		System.out.println("Server>Running...");
+		
 		ServerSocket ss= new ServerSocket (1234);
+	
 		while(true) {
 			System.out.println("Server>Waiting...");
+			
 			Socket s= new Socket();
 			s=ss.accept();
 			

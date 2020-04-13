@@ -3,28 +3,33 @@ package services;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import data.Persona;
 
 public class ServerThread extends Thread {
 
-	private String message;
 	private Socket s;
+	protected ObjectInputStream ois;
+	protected ObjectOutputStream oos;
 	
-
+	public ServerThread() throws IOException {
+		ois= new ObjectInputStream(s.getInputStream());
+		oos= new ObjectOutputStream(s.getOutputStream());
+		
+	}
 	@Override
 	public void run() {
 		
 		try {
-			BufferedReader input = new BufferedReader(new InputStreamReader(s.getInputStream()));
+			Persona persona= new Persona();
+			persona=(Persona)ois.readObject();
 			
-		while ((message = input.readLine())!= null){
-			
-			System.out.println("client> " + message);
-			
-		}
-		s.close();
-	
-			
+			System.out.println(persona);
+			oos.writeObject("Procesando");
+					
 	} catch (IOException e) {
 		
 		System.out.println("SERVER>"+e.getMessage());

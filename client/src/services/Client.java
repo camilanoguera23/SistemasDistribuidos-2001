@@ -1,8 +1,12 @@
 package services;
 
-import java.io.DataOutputStream;
+
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+import data.Persona;
 
 
 public class Client extends Connection
@@ -12,25 +16,27 @@ public class Client extends Connection
 		super("Client");
 		
 	}
-	public void onClient(String client) {
-		System.out.println(client+ " running...");
+	public void onClient(String client)throws ClassNotFoundException {
+		
 		try {
-		outputServer = new DataOutputStream(s.getOutputStream());
-		System.out.println(client+ " > sending data to server...");
-		for(int i =0; i < 2; i++)
-		{
-			
-			outputServer.writeUTF(client+ " >mensaje numero " + (i+1) + "\n");
-		}
-		System.out.println(client+">data sent...");
+		Persona persona=new Persona(1121960526,"camila",21,"F");
 		
+		System.out.println(persona);
+		ois= new ObjectInputStream(s.getInputStream());
+		oos= new ObjectOutputStream(s.getOutputStream());
 		
+		oos.writeObject(persona);
+		System.out.println(ois.readObject());
 		
-		s.close();
-		System.out.println(client+  " > Stop...");
-	}catch (Exception e) {
+		ois.close();
+		oos.close();
+		
+		}catch (Exception e) {
 		System.out.println(e.getMessage());
-	}
+	
+
+		
+		}
 
 }
 }
