@@ -1,0 +1,108 @@
+package data;
+
+public class Estudiante extends Persona{
+	
+	private int codigo;
+	private String programa;
+	private String fechaIngreso;
+	
+	public Estudiante() {
+		super();
+	}
+
+	public Estudiante(int identificacion, String nombre, int edad, String sexo, int codigo, String programa,
+			String fechaIngreso) {
+		super(identificacion, nombre, edad, sexo);
+		this.codigo = codigo;
+		this.programa = programa;
+		this.fechaIngreso = fechaIngreso;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	public String getPrograma() {
+		return programa;
+	}
+
+	public void setPrograma(String programa) {
+		this.programa = programa;
+	}
+
+	public String getFechaIngreso() {
+		return fechaIngreso;
+	}
+
+	public void setFechaIngreso(String fechaIngreso) {
+		this.fechaIngreso = fechaIngreso;
+	}
+	
+	@Override
+	public String toString() {
+		return "Persona [identificacion=" + super.getIdentificacion() + ", nombre=" + super.getNombre() + ", edad=" + super.getEdad() + ", sexo=" + super.getSexo()
+				+ ", codigo=" + codigo + ", fecha de ingreso=" + fechaIngreso + ", programa=" + programa +"]";
+	}
+}
+
+
+package data;
+
+import java.io.Serializable;
+
+public class Persona implements Serializable{
+	
+	private int identificacion;
+	private String nombre;
+	private int edad;
+	private String sexo;
+	
+	public Persona() {
+		
+	}
+	
+	public Persona(int identificacion, String nombre, int edad, String sexo) {
+		super();
+		this.identificacion = identificacion;
+		this.nombre = nombre;
+		this.edad = edad;
+		this.sexo = sexo;
+	}
+	
+	public int getIdentificacion() {
+		return identificacion;
+	}
+	public void setIdentificacion(int identificacion) {
+		this.identificacion = identificacion;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public int getEdad() {
+		return edad;
+	}
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	public String getSexo() {
+		return sexo;
+	}
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [identificacion=" + identificacion + ", nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo
+				+ "]";
+	}
+}
+
+
