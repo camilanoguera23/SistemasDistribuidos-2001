@@ -35,7 +35,7 @@ public class Client {
 	        ois = new ObjectInputStream(s.getInputStream());
 
 
-			Persona persona = new Persona(idClient, "camila", 21, "f");
+			Persona persona = new Persona(idClient, "Hawer", 30, "M");
 
 			System.out.println("Client> send object"+persona);
 

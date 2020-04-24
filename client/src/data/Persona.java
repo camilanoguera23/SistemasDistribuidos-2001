@@ -1,17 +1,26 @@
 package data;
 
-public class Persona {
+import java.io.Serializable;
+
+public class Persona implements Serializable {
+	
 	private int identificacion;
 	private String nombre;
 	private int edad;
-	public Persona(int identificacion, String nombre, int i, String sexo) {
+	private String sexo;
+	
+	public Persona() {
+		
+	}
+	
+	public Persona(int identificacion, String nombre, int edad, String sexo) {
 		super();
 		this.identificacion = identificacion;
 		this.nombre = nombre;
-		this.edad = i;
+		this.edad = edad;
 		this.sexo = sexo;
 	}
-	private String sexo;
+	
 	public int getIdentificacion() {
 		return identificacion;
 	}
@@ -35,6 +44,12 @@ public class Persona {
 	}
 	public void setSexo(String sexo) {
 		this.sexo = sexo;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [identificacion=" + identificacion + ", nombre=" + nombre + ", edad=" + edad + ", sexo=" + sexo
+				+ "]";
 	}
 
 }
